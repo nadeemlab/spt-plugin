@@ -4,9 +4,8 @@
 from sys import path
 from configparser import ConfigParser
 
-from train_cli import parse_arguments
-
 path.append('/app')
+from train_cli import parse_arguments
 
 
 if __name__ == '__main__':
