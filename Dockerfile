@@ -9,7 +9,9 @@ RUN rm -rf /var/lib/apt/lists/*
 
 # Install python packages you need here
 ENV PIP_NO_CACHE_DIR=1
-RUN pip install spatialprofilingtoolbox[graphs]
+RUN pip install h5py==3.10.0
+RUN pip install numpy==1.24.3
+RUN pip install scipy==1.10.1
 
 # Make the files you need in this directory available everywhere in the container
 ADD . /app
@@ -19,4 +21,3 @@ RUN chmod +x /app/print_graph_config.sh
 RUN mv /app/print_graph_config.sh /usr/local/bin/spt-plugin-print-graph-request-configuration
 RUN chmod +x /app/print_training_config.sh
 RUN mv /app/print_graph_config.sh /usr/local/bin/spt-plugin-print-training-configuration
-EXPOSE 80
